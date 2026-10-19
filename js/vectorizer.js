@@ -25,7 +25,7 @@
     formatTo: 'svg',
     vectorOptions: {
       mode: 'color',
-      numberofcolors: 3,       // Default 3 (Clean 2-Color Logo + White Background)
+      numberofcolors: 16,      // Default 16 (Full Vibrant Colors: Red, Green, Yellow, Blue)
       smoothness: 0,           // Crisp Logo & Text (Sharp)
       minarea: 12,
       blurradius: 0,
@@ -107,8 +107,8 @@
 
     // Apply defaults
     if (colorsSlider && colorsVal) {
-      colorsSlider.value = 3;
-      colorsVal.textContent = '3 (Clean Logo)';
+      colorsSlider.value = 16;
+      colorsVal.textContent = '16 (Vibrant Color)';
     }
     if (smoothnessSlider && smoothnessVal) {
       smoothnessSlider.value = 0;
@@ -226,12 +226,14 @@
     if (colorsSlider && colorsVal) {
       colorsSlider.addEventListener('input', function() {
         var v = parseInt(this.value, 10);
-        if (v <= 3) {
+        if (v <= 4) {
           colorsVal.textContent = v + ' (Clean Logo)';
-        } else if (v <= 6) {
-          colorsVal.textContent = v + ' (Graphic)';
+        } else if (v <= 8) {
+          colorsVal.textContent = v + ' (Flat Graphic)';
+        } else if (v <= 16) {
+          colorsVal.textContent = v + ' (Vibrant Color)';
         } else {
-          colorsVal.textContent = v + ' (Rich Art)';
+          colorsVal.textContent = v + ' (Ultra Detailed)';
         }
         state.vectorOptions.numberofcolors = v;
         debounceRetrace();
