@@ -1216,7 +1216,7 @@ if(typeof define === 'function' && define.amd){
 
 })();
 
-// Extended High-Precision Controller for AnySVG
+// Extended High-Precision Controller for AnySVG (v5.0 Halo Suppression)
 if (typeof ImageTracer !== 'undefined') {
   ImageTracer.proVectorize = function(imgElement, options, callback) {
     options = options || {};
@@ -1238,7 +1238,7 @@ if (typeof ImageTracer !== 'undefined') {
     ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
     var imgd = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-    var numColors = Math.max(2, Math.min(32, parseInt(options.numberofcolors, 10) || 4));
+    var numColors = Math.max(2, Math.min(32, parseInt(options.numberofcolors, 10) || 3));
     var smoothness = parseInt(options.smoothness, 10) || 0;
 
     var ltres = smoothness === 0 ? 0.05 : (smoothness === 1 ? 0.5 : 0.01);
@@ -1255,8 +1255,8 @@ if (typeof ImageTracer !== 'undefined') {
       numberofcolors: numColors,
       mincolorratio: 0.01,
       colorquantcycles: 4,
-      layering: 0,          // Sequential layering: ZERO cracks, ZERO jigsaw lines!
-      strokewidth: 0,       // Pure clean fills (no extra border stroke!)
+      layering: 0,
+      strokewidth: 0,
       linefilter: false,
       scale: 1,
       roundcoords: 1,
@@ -1277,7 +1277,7 @@ if (typeof ImageTracer !== 'undefined') {
     try {
       var td = ImageTracer.imagedataToTracedata(imgd, tracerOpts);
 
-      // Remove Background & Halos
+      // Intelligent Background & Halo/Fringe Suppression
       if (options.removeBackground) {
         var cornerR = imgd.data[0], cornerG = imgd.data[1], cornerB = imgd.data[2];
         var indicesToRemove = [];
@@ -1286,17 +1286,33 @@ if (typeof ImageTracer !== 'undefined') {
           var p = td.palette[i];
           var distCorner = Math.abs(p.r - cornerR) + Math.abs(p.g - cornerG) + Math.abs(p.b - cornerB);
           
-          if ((p.r > 240 && p.g > 240 && p.b > 240) || distCorner < 30) {
+          // 1. Pure background (White / corner color)
+          var isBg = (p.r > 240 && p.g > 240 && p.b > 240) || distCorner < 35;
+
+          // 2. Anti-aliasing halo: washed-out transitional shade close to background
+          // (Only remove if there are other solid foreground colors remaining)
+          var isHalo = false;
+          if (td.palette.length > 2) {
+            // High brightness and close to white background
+            if (p.r > 200 && p.g > 175 && p.b > 150 && distCorner < 185) {
+              isHalo = true;
+            }
+          }
+
+          if (isBg || isHalo) {
             indicesToRemove.push(i);
           }
         }
 
-        indicesToRemove.sort(function(a, b) { return b - a; }).forEach(function(idx) {
-          if (td.layers && td.layers[idx]) {
-            td.layers.splice(idx, 1);
-            td.palette.splice(idx, 1);
-          }
-        });
+        // Safety: Ensure we don't remove ALL layers
+        if (indicesToRemove.length < td.palette.length) {
+          indicesToRemove.sort(function(a, b) { return b - a; }).forEach(function(idx) {
+            if (td.layers && td.layers[idx]) {
+              td.layers.splice(idx, 1);
+              td.palette.splice(idx, 1);
+            }
+          });
+        }
       }
 
       var svgString = ImageTracer.getsvgstring(td, tracerOpts);
