@@ -1,6 +1,6 @@
 /**
- * Vectorizer UI Controller for AnySVG (v2.0)
- * Precision Controls: Defaults to Crisp Logo & Text (Sharp).
+ * Vectorizer UI Controller for AnySVG (v5.0)
+ * Precision Controls: Defaults to 3 Colors (Clean Logo) with smart halo suppression.
  */
 
 (function() {
@@ -20,8 +20,8 @@
     isProcessing: false,
     options: {
       mode: 'color',
-      numberofcolors: 4,       // Default 4 for clean, crisp logos
-      smoothness: 0,           // Default 0: Crisp Logo & Text (Sharp)
+      numberofcolors: 3,       // Default 3 (Clean 2-Color Logo + White Background)
+      smoothness: 0,           // Crisp Logo & Text (Sharp)
       minarea: 12,
       blurradius: 0,
       removeBackground: true,  // Default to clean transparent SVG
@@ -74,10 +74,10 @@
   function init() {
     if (!dropzone || !fileInput) return;
 
-    // Apply default UI control values
+    // Apply default UI control values: Default to 3 for clean logos!
     if (colorsSlider && colorsVal) {
-      colorsSlider.value = 4;
-      colorsVal.textContent = '4 (Logo)';
+      colorsSlider.value = 3;
+      colorsVal.textContent = '3 (Clean Logo)';
     }
     if (smoothnessSlider && smoothnessVal) {
       smoothnessSlider.value = 0;
@@ -129,7 +129,13 @@
     if (colorsSlider && colorsVal) {
       colorsSlider.addEventListener('input', function() {
         var v = parseInt(this.value, 10);
-        colorsVal.textContent = v <= 4 ? v + ' (Logo)' : v + ' (Rich)';
+        if (v <= 3) {
+          colorsVal.textContent = v + ' (Clean Logo)';
+        } else if (v <= 6) {
+          colorsVal.textContent = v + ' (Graphic)';
+        } else {
+          colorsVal.textContent = v + ' (Rich Art)';
+        }
         state.options.numberofcolors = v;
         debounceRetrace();
       });
