@@ -461,7 +461,7 @@
           updateProgress(100, 'Vectorization complete!');
           setTimeout(function() {
             processingCard.style.display = 'none';
-            resultsWorkspace.style.display = 'grid';
+            resultsWorkspace.style.display = 'grid'; scrollToWorkspace();
             renderActivePreview();
             showToast('Vectorized successfully!');
           }, 200);
@@ -476,7 +476,7 @@
           updateProgress(100, 'Conversion complete!');
           setTimeout(function() {
             processingCard.style.display = 'none';
-            resultsWorkspace.style.display = 'grid';
+            resultsWorkspace.style.display = 'grid'; scrollToWorkspace();
             renderActivePreview();
             showToast('Converted successfully!');
           }, 200);
@@ -715,6 +715,22 @@
     a.click();
     document.body.removeChild(a);
     showToast(target.toUpperCase() + ' downloaded successfully!');
+  }
+
+  
+  function scrollToWorkspace() {
+    setTimeout(function() {
+      var toolCard = document.getElementById('converter');
+      if (toolCard) {
+        var headerOffset = 55;
+        var elPos = toolCard.getBoundingClientRect().top;
+        var offsetPos = elPos + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPos),
+          behavior: 'smooth'
+        });
+      }
+    }, 80);
   }
 
   function resetWorkspace() {
