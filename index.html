@@ -198,35 +198,27 @@
         </div>
 
         <!-- Studio Compact Dropzone -->
-        <div class="dropzone-container" id="dropzone">
-          <div class="dropzone-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="17 8 12 3 7 8"></polyline>
-              <line x1="12" y1="3" x2="12" y2="15"></line>
-            </svg>
-          </div>
-          <h3 class="dropzone-title" id="dropzoneTitle">Drag & Drop Image or Click to Browse</h3>
-          
-          <div class="dropzone-cta-row">
-            <button type="button" class="btn-browse-accent" id="browseFilesBtn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <div class="dropzone-container dropzone-compact" id="dropzone">
+          <div class="dropzone-compact-inner">
+            <div class="dropzone-icon-compact">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="17 8 12 3 7 8"></polyline>
                 <line x1="12" y1="3" x2="12" y2="15"></line>
               </svg>
-              <span>Choose Image</span>
+            </div>
+            <div class="dropzone-text-group">
+              <div class="dropzone-title-compact" id="dropzoneTitle">Upload Image to Convert (PNG, JPG, WEBP, SVG)</div>
+              <div class="dropzone-sub-compact" id="dropzoneDesc">Drag & drop your file or click the button • Max 25MB</div>
+            </div>
+            <button type="button" class="btn-upload-file" id="browseFilesBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <span>Upload Your File</span>
             </button>
-            <span class="dropzone-desc-compact">supports PNG, JPG, WEBP, SVG, BMP, GIF (up to 25MB)</span>
-          </div>
-
-          <div class="format-pills-row">
-            <span class="format-pill-sm">PNG</span>
-            <span class="format-pill-sm">JPG</span>
-            <span class="format-pill-sm">WEBP</span>
-            <span class="format-pill-sm">SVG</span>
-            <span class="format-pill-sm">BMP</span>
-            <span class="format-pill-sm">GIF</span>
           </div>
           <input type="file" id="fileInput" class="file-input-hidden" accept="image/png, image/jpeg, image/webp, image/gif, image/bmp, image/svg+xml, .svg">
         </div>
