@@ -1,0 +1,16 @@
+{
+  "name": "AnySVG - Free Online Vectorizer & SVG Converter",
+  "short_name": "AnySVG",
+  "description": "Convert PNG, JPG, and WEBP to genuine SVG vector paths in your browser with true contour tracing.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
