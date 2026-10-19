@@ -1238,7 +1238,7 @@ if (typeof ImageTracer !== 'undefined') {
     ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
     var imgd = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-    var numColors = Math.max(2, Math.min(32, parseInt(options.numberofcolors, 10) || 3));
+    var numColors = Math.max(2, Math.min(64, parseInt(options.numberofcolors, 10) || 16));
     var smoothness = parseInt(options.smoothness, 10) || 0;
 
     var ltres = smoothness === 0 ? 0.05 : (smoothness === 1 ? 0.5 : 0.01);
@@ -1249,12 +1249,12 @@ if (typeof ImageTracer !== 'undefined') {
       corsenabled: false,
       ltres: ltres,
       qtres: qtres,
-      pathomit: smoothness === 0 ? 8 : 4,
+      pathomit: smoothness === 0 ? 6 : 4,
       rightangleenhance: rightangleenhance,
       colorsampling: 2,
       numberofcolors: numColors,
-      mincolorratio: 0.01,
-      colorquantcycles: 4,
+      mincolorratio: 0.0005, // Ultra sensitive so small details like red comb/eyes/beak are never discarded
+      colorquantcycles: 5,    // High accuracy color clustering
       layering: 0,
       strokewidth: 0,
       linefilter: false,
@@ -1277,29 +1277,32 @@ if (typeof ImageTracer !== 'undefined') {
     try {
       var td = ImageTracer.imagedataToTracedata(imgd, tracerOpts);
 
-      // Intelligent Background & Halo/Fringe Suppression
+      // Clean Background Removal (Preserving ALL vibrant foreground colors)
       if (options.removeBackground) {
-        var cornerR = imgd.data[0], cornerG = imgd.data[1], cornerB = imgd.data[2];
+        var cornerR = imgd.data[0], cornerG = imgd.data[1], cornerB = imgd.data[2], cornerA = imgd.data[3];
+        var isCornerWhite = (cornerR > 240 && cornerG > 240 && cornerB > 240 && cornerA > 200);
+        var isCornerTransparent = (cornerA < 64);
         var indicesToRemove = [];
 
         for (var i = 0; i < td.palette.length; i++) {
           var p = td.palette[i];
           var distCorner = Math.abs(p.r - cornerR) + Math.abs(p.g - cornerG) + Math.abs(p.b - cornerB);
           
-          // 1. Pure background (White / corner color)
-          var isBg = (p.r > 240 && p.g > 240 && p.b > 240) || distCorner < 35;
-
-          // 2. Anti-aliasing halo: washed-out transitional shade close to background
-          // (Only remove if there are other solid foreground colors remaining)
-          var isHalo = false;
-          if (td.palette.length > 2) {
-            // High brightness and close to white background
-            if (p.r > 200 && p.g > 175 && p.b > 150 && distCorner < 185) {
-              isHalo = true;
-            }
+          var isBg = false;
+          if (p.a < 64) {
+            // Transparent background
+            isBg = true;
+          } else if (isCornerTransparent && distCorner < 30) {
+            isBg = true;
+          } else if (isCornerWhite && (distCorner < 35 || (p.r > 248 && p.g > 248 && p.b > 248))) {
+            // White background canvas
+            isBg = true;
+          } else if (!isCornerWhite && !isCornerTransparent && distCorner < 20) {
+            // Solid background matching corner
+            isBg = true;
           }
 
-          if (isBg || isHalo) {
+          if (isBg) {
             indicesToRemove.push(i);
           }
         }
