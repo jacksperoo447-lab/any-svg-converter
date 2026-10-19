@@ -1,12 +1,11 @@
 /**
- * Vectorizer UI Controller for AnySVG
- * Manages file uploads, interactive controls, live previews, and downloads.
+ * Vectorizer UI Controller for AnySVG (v2.0)
+ * Precision Controls: Defaults to Crisp Logo & Text (Sharp).
  */
 
 (function() {
   'use strict';
 
-  // State Management
   var state = {
     originalImage: null,
     originalFile: null,
@@ -17,21 +16,20 @@
     svgString: '',
     svgBlobUrl: null,
     zoomLevel: 1,
-    activeTab: 'vector', // 'vector' or 'original'
+    activeTab: 'vector',
     isProcessing: false,
     options: {
       mode: 'color',
-      numberofcolors: 8,
-      smoothness: 1,
-      minarea: 4,
+      numberofcolors: 4,       // Default 4 for clean, crisp logos
+      smoothness: 0,           // Default 0: Crisp Logo & Text (Sharp)
+      minarea: 12,
       blurradius: 0,
-      removeBackground: false,
+      removeBackground: true,  // Default to clean transparent SVG
       threshold: 128,
       invert: false
     }
   };
 
-  // DOM Elements
   var dropzone = document.getElementById('dropzone');
   var fileInput = document.getElementById('fileInput');
   var processingCard = document.getElementById('processingCard');
@@ -40,7 +38,6 @@
   var resultsWorkspace = document.getElementById('resultsWorkspace');
   var previewBox = document.getElementById('previewBox');
 
-  // Controls Elements
   var modeColorBtn = document.getElementById('modeColorBtn');
   var modeMonoBtn = document.getElementById('modeMonoBtn');
   var colorControlGroup = document.getElementById('colorControlGroup');
@@ -54,47 +51,52 @@
   var removeBgToggle = document.getElementById('removeBgToggle');
   var invertToggle = document.getElementById('invertToggle');
 
-  // Preview Tabs & Buttons
   var tabVector = document.getElementById('tabVector');
   var tabOriginal = document.getElementById('tabOriginal');
   var zoomInBtn = document.getElementById('zoomInBtn');
   var zoomOutBtn = document.getElementById('zoomOutBtn');
   var zoomResetBtn = document.getElementById('zoomResetBtn');
 
-  // Stats Badges
   var statDimensions = document.getElementById('statDimensions');
   var statPaths = document.getElementById('statPaths');
   var statOriginalSize = document.getElementById('statOriginalSize');
   var statSvgSize = document.getElementById('statSvgSize');
 
-  // Action Buttons
   var downloadSvgBtn = document.getElementById('downloadSvgBtn');
   var copyCodeBtn = document.getElementById('copyCodeBtn');
   var viewCodeBtn = document.getElementById('viewCodeBtn');
   var convertAnotherBtn = document.getElementById('convertAnotherBtn');
 
-  // Modal Elements
   var codeModal = document.getElementById('codeModal');
   var codeTextarea = document.getElementById('codeTextarea');
   var modalCopyBtn = document.getElementById('modalCopyBtn');
 
-  // Initialize Event Listeners
   function init() {
     if (!dropzone || !fileInput) return;
 
-    // Dropzone Click
+    // Apply default UI control values
+    if (colorsSlider && colorsVal) {
+      colorsSlider.value = 4;
+      colorsVal.textContent = '4 (Logo)';
+    }
+    if (smoothnessSlider && smoothnessVal) {
+      smoothnessSlider.value = 0;
+      smoothnessVal.textContent = 'Crisp Logo (Sharp)';
+    }
+    if (removeBgToggle) {
+      removeBgToggle.checked = true;
+    }
+
     dropzone.addEventListener('click', function() {
       fileInput.click();
     });
 
-    // File Input Change
     fileInput.addEventListener('change', function(e) {
       if (e.target.files && e.target.files[0]) {
         handleSelectedFile(e.target.files[0]);
       }
     });
 
-    // Drag & Drop Events
     ['dragenter', 'dragover'].forEach(function(eventName) {
       dropzone.addEventListener(eventName, function(e) {
         e.preventDefault();
@@ -119,20 +121,16 @@
       }
     });
 
-    // Controls Events
     if (modeColorBtn && modeMonoBtn) {
-      modeColorBtn.addEventListener('click', function() {
-        setMode('color');
-      });
-      modeMonoBtn.addEventListener('click', function() {
-        setMode('monochrome');
-      });
+      modeColorBtn.addEventListener('click', function() { setMode('color'); });
+      modeMonoBtn.addEventListener('click', function() { setMode('monochrome'); });
     }
 
     if (colorsSlider && colorsVal) {
       colorsSlider.addEventListener('input', function() {
-        colorsVal.textContent = this.value;
-        state.options.numberofcolors = parseInt(this.value, 10);
+        var v = parseInt(this.value, 10);
+        colorsVal.textContent = v <= 4 ? v + ' (Logo)' : v + ' (Rich)';
+        state.options.numberofcolors = v;
         debounceRetrace();
       });
     }
@@ -140,8 +138,8 @@
     if (smoothnessSlider && smoothnessVal) {
       smoothnessSlider.addEventListener('input', function() {
         var val = parseInt(this.value, 10);
-        var labels = ['Sharp', 'Balanced', 'Ultra Smooth'];
-        smoothnessVal.textContent = labels[val] || 'Balanced';
+        var labels = ['Crisp Logo (Sharp)', 'Balanced', 'Ultra Smooth'];
+        smoothnessVal.textContent = labels[val] || 'Crisp Logo (Sharp)';
         state.options.smoothness = val;
         debounceRetrace();
       });
@@ -169,7 +167,6 @@
       });
     }
 
-    // Tabs
     if (tabVector && tabOriginal) {
       tabVector.addEventListener('click', function() {
         state.activeTab = 'vector';
@@ -185,7 +182,6 @@
       });
     }
 
-    // Zoom Controls
     if (zoomInBtn) {
       zoomInBtn.addEventListener('click', function() {
         state.zoomLevel = Math.min(3, state.zoomLevel + 0.25);
@@ -205,7 +201,6 @@
       });
     }
 
-    // Actions
     if (downloadSvgBtn) {
       downloadSvgBtn.addEventListener('click', downloadSVG);
     }
@@ -230,7 +225,6 @@
     }
   }
 
-  // Set Tracing Mode
   function setMode(mode) {
     state.options.mode = mode;
     if (mode === 'color') {
@@ -247,7 +241,6 @@
     runVectorization();
   }
 
-  // Handle Uploaded File
   function handleSelectedFile(file) {
     if (!file.type.match('image.*')) {
       alert('Please upload a valid image file (PNG, JPG, WEBP, GIF, BMP).');
@@ -266,13 +259,12 @@
         state.originalWidth = img.naturalWidth || img.width;
         state.originalHeight = img.naturalHeight || img.height;
 
-        // Display processing UI
         dropzone.style.display = 'none';
         processingCard.style.display = 'block';
-        updateProgress(20, 'Analyzing pixels & color palette...');
+        updateProgress(30, 'Detecting dominant colors & crisp edges...');
 
         setTimeout(function() {
-          updateProgress(50, 'Tracing contours and vector paths...');
+          updateProgress(70, 'Tracing sharp vector geometry...');
           setTimeout(function() {
             runVectorization(function() {
               updateProgress(100, 'Vectorization complete!');
@@ -281,7 +273,7 @@
                 resultsWorkspace.style.display = 'grid';
                 renderActivePreview();
                 showToast('Vectorized successfully!');
-              }, 300);
+              }, 250);
             });
           }, 80);
         }, 100);
@@ -291,7 +283,6 @@
     reader.readAsDataURL(file);
   }
 
-  // Run Vectorization Engine
   function runVectorization(callback) {
     if (!state.originalImage) return;
 
@@ -308,16 +299,13 @@
       updateStats(svg);
       renderActivePreview();
 
-      if (typeof callback === 'function') {
-        callback();
-      }
+      if (typeof callback === 'function') callback();
     } catch (err) {
       console.error(err);
       alert('Error during vectorization: ' + err.message);
     }
   }
 
-  // Debounced re-trace on slider moves
   var retraceTimer = null;
   function debounceRetrace() {
     clearTimeout(retraceTimer);
@@ -326,7 +314,6 @@
     }, 180);
   }
 
-  // Update Stats UI
   function updateStats(svg) {
     if (statDimensions) {
       statDimensions.textContent = state.originalWidth + ' × ' + state.originalHeight + ' px';
@@ -344,7 +331,6 @@
     }
   }
 
-  // Render Active Tab in Preview Box
   function renderActivePreview() {
     if (!previewBox) return;
 
@@ -356,7 +342,6 @@
     applyZoom();
   }
 
-  // Apply Zoom
   function applyZoom() {
     var target = previewBox.firstElementChild;
     if (target) {
@@ -364,7 +349,6 @@
     }
   }
 
-  // Download SVG File
   function downloadSVG() {
     if (!state.svgString) return;
     var blob = new Blob([state.svgString], { type: 'image/svg+xml;charset=utf-8' });
@@ -375,13 +359,10 @@
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    setTimeout(function() {
-      URL.revokeObjectURL(url);
-    }, 1000);
+    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
     showToast('Download started!');
   }
 
-  // Reset Workspace
   function resetWorkspace() {
     state.originalImage = null;
     state.originalFile = null;
@@ -397,13 +378,11 @@
     dropzone.style.display = 'block';
   }
 
-  // Progress Bar Helper
   function updateProgress(percent, statusText) {
     if (progressBar) progressBar.style.width = percent + '%';
     if (progressStatus) progressStatus.textContent = statusText;
   }
 
-  // File Size Formatter
   function formatBytes(bytes, decimals) {
     if (bytes === 0) return '0 Bytes';
     var k = 1024;
@@ -413,7 +392,6 @@
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
-  // Run on DOM Ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
