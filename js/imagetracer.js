@@ -1009,7 +1009,7 @@ function ImageTracer(){
 	
 	// Convert color object to SVG color string
 	this.tosvgcolorstr = function(c, options){
-		return 'fill="rgb('+c.r+','+c.g+','+c.b+')" stroke="rgb('+c.r+','+c.g+','+c.b+')" stroke-width="'+options.strokewidth+'" opacity="'+c.a/255.0+'" ';
+		if(options.strokewidth <= 0){ return 'fill="rgb('+c.r+','+c.g+','+c.b+')" opacity="'+c.a/255.0+'" '; } return 'fill="rgb('+c.r+','+c.g+','+c.b+')" stroke="rgb('+c.r+','+c.g+','+c.b+')" stroke-width="'+options.strokewidth+'" opacity="'+c.a/255.0+'" ';
 	},
 	
 	// Helper function: Appending an <svg> element to a container from an svgstring
@@ -1224,14 +1224,13 @@ if (typeof ImageTracer !== 'undefined') {
     var canvas = document.createElement('canvas');
     var w = imgElement.naturalWidth || imgElement.width || 800;
     var h = imgElement.naturalHeight || imgElement.height || 600;
-    
-    // Scale for performance if exceptionally large
-    var maxDim = 1600;
+
+    var maxDim = 2000;
     var scale = 1;
     if (w > maxDim || h > maxDim) {
       scale = maxDim / Math.max(w, h);
     }
-    
+
     canvas.width = Math.round(w * scale);
     canvas.height = Math.round(h * scale);
     var ctx = canvas.getContext('2d');
@@ -1239,29 +1238,25 @@ if (typeof ImageTracer !== 'undefined') {
     ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
     var imgd = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-    var numColors = Math.max(2, Math.min(32, parseInt(options.numberofcolors, 10) || 8));
+    var numColors = Math.max(2, Math.min(32, parseInt(options.numberofcolors, 10) || 4));
     var smoothness = parseInt(options.smoothness, 10) || 0;
 
-    // Options mapping:
-    // Smoothness 0 (Crisp Logo): ltres 0.05, qtres 0.2, rightangleenhance true
-    // Smoothness 1 (Balanced): ltres 1, qtres 1, rightangleenhance true
-    // Smoothness 2 (Curvy): ltres 0.01, qtres 10, rightangleenhance false
     var ltres = smoothness === 0 ? 0.05 : (smoothness === 1 ? 0.5 : 0.01);
-    var qtres = smoothness === 0 ? 0.1 : (smoothness === 1 ? 1 : 10);
+    var qtres = smoothness === 0 ? 0.2 : (smoothness === 1 ? 1 : 8);
     var rightangleenhance = smoothness !== 2;
 
     var tracerOpts = {
       corsenabled: false,
       ltres: ltres,
       qtres: qtres,
-      pathomit: 6,
+      pathomit: smoothness === 0 ? 8 : 4,
       rightangleenhance: rightangleenhance,
       colorsampling: 2,
       numberofcolors: numColors,
-      mincolorratio: 0.005,
-      colorquantcycles: 3,
-      layering: 0,          // 0: Sequential layering -> ZERO cracks, ZERO jigsaw lines!
-      strokewidth: 0,       // 0 for clean fills
+      mincolorratio: 0.01,
+      colorquantcycles: 4,
+      layering: 0,          // Sequential layering: ZERO cracks, ZERO jigsaw lines!
+      strokewidth: 0,       // Pure clean fills (no extra border stroke!)
       linefilter: false,
       scale: 1,
       roundcoords: 1,
@@ -1282,24 +1277,26 @@ if (typeof ImageTracer !== 'undefined') {
     try {
       var td = ImageTracer.imagedataToTracedata(imgd, tracerOpts);
 
-      // Remove Background if requested (detects pure white or corner pixel)
+      // Remove Background & Halos
       if (options.removeBackground) {
         var cornerR = imgd.data[0], cornerG = imgd.data[1], cornerB = imgd.data[2];
-        var bgIndex = -1;
+        var indicesToRemove = [];
 
         for (var i = 0; i < td.palette.length; i++) {
           var p = td.palette[i];
           var distCorner = Math.abs(p.r - cornerR) + Math.abs(p.g - cornerG) + Math.abs(p.b - cornerB);
-          if ((p.r > 240 && p.g > 240 && p.b > 240) || distCorner < 35) {
-            bgIndex = i;
-            break;
+          
+          if ((p.r > 240 && p.g > 240 && p.b > 240) || distCorner < 30) {
+            indicesToRemove.push(i);
           }
         }
 
-        if (bgIndex !== -1 && td.layers && td.layers[bgIndex]) {
-          td.layers.splice(bgIndex, 1);
-          td.palette.splice(bgIndex, 1);
-        }
+        indicesToRemove.sort(function(a, b) { return b - a; }).forEach(function(idx) {
+          if (td.layers && td.layers[idx]) {
+            td.layers.splice(idx, 1);
+            td.palette.splice(idx, 1);
+          }
+        });
       }
 
       var svgString = ImageTracer.getsvgstring(td, tracerOpts);
@@ -1311,6 +1308,5 @@ if (typeof ImageTracer !== 'undefined') {
     }
   };
 
-  // Backwards compatibility alias
   ImageTracer.imageToSVG = ImageTracer.proVectorize;
 }
