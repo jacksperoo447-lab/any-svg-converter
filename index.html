@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="AnySVG">
+
   <title>Free SVG Converter Online - Convert PNG, JPG, WEBP to SVG Vector</title>
   <meta name="description" content="Free online SVG converter with true path tracing. Convert PNG, JPG, WEBP, BMP, and GIF to high-resolution scalable SVG vectors or SVG to PNG/JPG. 100% private, browser-based, no upload.">
   <meta name="keywords" content="svg converter, png to svg, jpg to svg, image to svg vector, svg vectorizer, convert to svg, online svg converter, svg to png">
@@ -103,13 +110,13 @@
 <body>
 
   <!-- Site Header -->
-  <header class="site-header">
+    <header class="site-header" id="mainHeader">
     <div class="header-container">
       <a href="index.html" class="brand-logo">
         <div class="brand-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="12 17 12 22 22 17"></polyline>
             <polyline points="2 12 12 17 22 12"></polyline>
           </svg>
         </div>
@@ -117,10 +124,28 @@
         <span class="brand-tag">PRO</span>
       </a>
 
-      <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+      <!-- Header Right Actions: Install App Button & Menu Toggle -->
+      <div class="header-right-actions">
+        <button type="button" class="btn-install-app" id="headerInstallBtn" aria-label="Install AnySVG App" title="Install AnySVG as Web App">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Install App</span>
+        </button>
 
-      <nav>
-        <ul class="nav-menu">
+        <button class="mobile-toggle" id="mobileToggleBtn" aria-label="Toggle navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="nav-container">
+        <ul class="nav-menu" id="navMenu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="png-to-svg.html" class="nav-link">PNG to SVG</a></li>
           <li><a href="jpg-to-svg.html" class="nav-link">JPG to SVG</a></li>
@@ -128,6 +153,16 @@
           <li><a href="blog.html" class="nav-link">Blog</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li>
+            <button type="button" class="nav-link-install btn-install-app" style="width: 100%; border: none; background: #eef2ff; color: #4f46e5; font-weight: 700; border-radius: 8px; padding: 0.65rem 1rem; margin-top: 0.35rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Install AnySVG Web App</span>
+            </button>
+          </li>
           <li><a href="#converter" class="header-cta">Convert Now</a></li>
         </ul>
       </nav>
@@ -812,5 +847,65 @@
   <script src="js/rasterizer.js"></script>
   <script src="js/common.js"></script>
   <script src="js/vectorizer.js"></script>
+
+  <!-- Install App Modal / Dialog -->
+  <div class="install-modal-backdrop" id="installAppModal">
+    <div class="install-modal-card">
+      <div class="install-modal-header">
+        <div class="install-modal-title">
+          <div class="brand-icon" style="width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, #4f46e5, #06b6d4); display: flex; align-items: center; justify-content: center; color: #fff;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="12 17 12 22 22 17"></polyline>
+            </svg>
+          </div>
+          <span>Install AnySVG App</span>
+        </div>
+        <button type="button" class="install-modal-close" id="closeInstallModal" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="install-modal-body">
+        <p style="font-size: 0.88rem; color: #475569; margin-bottom: 1rem; line-height: 1.4;">
+          Install AnySVG for instant 1-click home screen access, 100% private offline vectorizing, and zero server uploads.
+        </p>
+
+        <div class="install-device-card">
+          <div class="device-icon">📱</div>
+          <div>
+            <strong style="color: #0f172a; font-size: 0.9rem;">iPhone / iPad (Safari)</strong>
+            <ol style="margin: 0.35rem 0 0 1.25rem; font-size: 0.82rem; color: #475569; line-height: 1.4;">
+              <li>Tap the <strong>Share</strong> button (⬆️) in Safari</li>
+              <li>Scroll down & tap <strong>Add to Home Screen</strong></li>
+              <li>Tap <strong>Add</strong> in top-right</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="install-device-card" style="margin-top: 0.65rem;">
+          <div class="device-icon">🤖</div>
+          <div>
+            <strong style="color: #0f172a; font-size: 0.9rem;">Android (Chrome / Samsung)</strong>
+            <ol style="margin: 0.35rem 0 0 1.25rem; font-size: 0.82rem; color: #475569; line-height: 1.4;">
+              <li>Tap the <strong>Three Dots Menu</strong> (⋮)</li>
+              <li>Tap <strong>Install App</strong> or <strong>Add to Home screen</strong></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="install-device-card" style="margin-top: 0.65rem;">
+          <div class="device-icon">💻</div>
+          <div>
+            <strong style="color: #0f172a; font-size: 0.9rem;">PC / Mac (Chrome / Edge)</strong>
+            <p style="margin: 0.25rem 0 0 0; font-size: 0.82rem; color: #475569;">
+              Click the <strong>Install</strong> icon (⊕) in the browser address bar.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="install-modal-footer">
+        <button type="button" class="btn-primary" id="gotItInstallBtn" style="width: 100%; justify-content: center; padding: 0.6rem 1rem;">Got it!</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+
