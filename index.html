@@ -3,37 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AnySVG - Free Online Image to SVG Converter | High Quality Vectorizer</title>
-  <meta name="description" content="Convert PNG, JPG, WEBP, and any raster image to true SVG vector format online for free. Real path tracing, color quantization, smooth curves, and 100% browser privacy.">
-  <meta name="keywords" content="svg converter, png to svg, jpg to svg, image to vector, vectorizer online, free svg converter, raster to vector">
-  <link rel="canonical" href="https://anysvg.com/">
+  <title>Free SVG Converter Online - Convert PNG, JPG, WEBP to SVG Vector</title>
+  <meta name="description" content="Free online SVG converter with true path tracing. Convert PNG, JPG, WEBP, BMP, and GIF to high-resolution scalable SVG vectors or SVG to PNG/JPG. 100% private, browser-based, no upload.">
+  <meta name="keywords" content="svg converter, png to svg, jpg to svg, image to svg vector, svg vectorizer, convert to svg, online svg converter, svg to png">
+  <link rel="canonical" href="https://any-svg-converter.pages.dev/">
   
-  <!-- Open Graph / Social Meta -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free SVG Converter Online - Real Vector Path Tracing">
+  <meta property="og:description" content="Convert raster images (PNG, JPG, WEBP) to true SVG vectors and SVG to PNG/JPG directly in your browser. 100% free and private.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://anysvg.com/">
-  <meta property="og:title" content="AnySVG - High-Quality Online SVG Vectorizer">
-  <meta property="og:description" content="Convert any image to clean, scalable SVG vector graphics directly in your browser. Real path tracing, no fake wrappers.">
-  <meta property="og:image" content="https://anysvg.com/assets/og-image.png">
-
-  <!-- Stylesheet -->
+  <meta property="og:url" content="https://any-svg-converter.pages.dev/">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AnySVG - Free Online Vector Converter">
+  <meta name="twitter:description" content="Convert bitmap images to SVG vectors or export SVGs to crisp rasters directly in your browser.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Schema.org JSON-LD for SEO / AEO / GEO -->
+  <!-- Schema.org JSON-LD (SEO, AEO, GEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
-        "name": "AnySVG Vectorizer",
-        "operatingSystem": "All (Web Browser)",
-        "applicationCategory": "MultimediaApplication",
+        "@type": "WebApplication",
+        "name": "AnySVG Converter",
+        "url": "https://any-svg-converter.pages.dev/",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
         "offers": {
           "@type": "Offer",
-          "price": "0",
+          "price": "0.00",
           "priceCurrency": "USD"
         },
-        "description": "High-quality client-side image to SVG vectorizer with color quantization, curve smoothing, and background removal."
+        "description": "High-speed client-side image to SVG vectorizer and SVG to raster converter supporting PNG, JPG, WEBP, GIF, and BMP."
       },
       {
         "@type": "FAQPage",
@@ -43,23 +54,23 @@
             "name": "How does AnySVG convert images to SVG?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "AnySVG uses real client-side path tracing algorithms. It analyzes the pixels in your image, groups similar colors into an optimized palette, traces contours between color regions, and fits smooth Bezier curves to create true scalable vector paths."
+              "text": "AnySVG uses client-side algorithmic contour tracing and color quantization to generate genuine geometric SVG path elements, rather than just embedding base64 raster data."
             }
           },
           {
             "@type": "Question",
-            "name": "Are my uploaded photos and images private?",
+            "name": "Are my images uploaded to any remote server?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, 100%. All processing runs locally inside your browser via HTML5 Canvas and JavaScript. Your files are never uploaded to any remote server or stored in any database."
+              "text": "No. AnySVG processes 100% of images locally inside your web browser using HTML5 Canvas and JavaScript. No image data is ever uploaded or stored."
             }
           },
           {
             "@type": "Question",
-            "name": "Can I convert SVG back to PNG or JPG?",
+            "name": "Can I convert SVG back to high-resolution PNG or JPG?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes! Use our companion tools in the sidebar to convert SVG to high-resolution PNG (up to 8x scale) or crisp JPG with custom background colors."
+              "text": "Yes! You can choose SVG as your input format and convert it to high-resolution PNG (up to 8x scale) or crisp JPG directly on the homepage or dedicated pages."
             }
           }
         ]
@@ -70,18 +81,18 @@
         "step": [
           {
             "@type": "HowToStep",
-            "name": "Upload Image",
-            "text": "Drag and drop or select your PNG, JPG, WEBP, or BMP file into the dropzone."
+            "name": "Select Formats & Upload",
+            "text": "Choose your source and target formats (e.g., PNG to SVG), then drop your image into the dropzone."
           },
           {
             "@type": "HowToStep",
             "name": "Adjust Settings",
-            "text": "Choose Multi-Color or Monochrome mode, and adjust color count and smoothness sliders."
+            "text": "Fine-tune color count, smoothness, and background transparency with real-time vector preview."
           },
           {
             "@type": "HowToStep",
-            "name": "Download SVG",
-            "text": "Click Download SVG or copy the SVG code directly to your clipboard."
+            "name": "Download Output",
+            "text": "Click Download SVG or copy the clean SVG vector code directly to your clipboard."
           }
         ]
       }
@@ -123,100 +134,131 @@
     </div>
   </header>
 
-  <!-- Google AdSense: Top Leaderboard Ad Slot (728x90) -->
-  <div class="ad-slot-wrapper">
-    <span class="ad-label">Advertisement</span>
-    <div class="ad-box leaderboard" id="ad-top-leaderboard">
-      <!-- Google AdSense Snippet Goes Here -->
-      <span>Google AdSense Responsive Leaderboard (728x90)</span>
-    </div>
-  </div>
-
   <main class="container">
-    <div class="main-layout">
-      <!-- Main Left Column -->
-      <div class="main-content-column">
+    <div class="full-converter-layout">
+      
+      <!-- Hero Section (Compact Above-The-Fold) -->
+      <section class="hero-section hero-compact">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>100% Free & Browser-Based • Zero Data Uploaded</span>
+        </div>
+        <h1 class="hero-title">
+          Convert Any Image to <span class="gradient-text">Clean SVG Vectors</span>
+        </h1>
+        <p class="hero-subtitle">
+          Transform PNG, JPG, and WEBP into crisp, infinitely scalable SVG graphics with real contour tracing, or export SVGs to high-res PNG/JPG.
+        </p>
+      </section>
+
+      <!-- Main Converter Tool Card (Immediately Visible Above The Fold) -->
+      <section class="tool-card" id="converter">
         
-        <!-- Hero Section -->
-        <section class="hero-section">
-          <div class="hero-badge">
-            <span class="pulse-dot"></span>
-            <span>100% Client-Side • Zero Data Stored • Free Vectorizer</span>
-          </div>
-          <h1 class="hero-title">
-            Convert Any Image to <span class="gradient-text">Clean SVG Vectors</span>
-          </h1>
-          <p class="hero-subtitle">
-            Transform raster PNG, JPG, and WEBP images into crisp, infinitely scalable SVG graphics with real path tracing and color quantization.
-          </p>
-        </section>
-
-        <!-- Main Tool Card -->
-        <section class="tool-card" id="converter">
-          <!-- Dropzone -->
-          <div class="dropzone-container" id="dropzone">
-            <div class="dropzone-icon">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="17 8 12 3 7 8"></polyline>
-                <line x1="12" y1="3" x2="12" y2="15"></line>
-              </svg>
-            </div>
-            <h3 class="dropzone-title">Drop your image here, or browse files</h3>
-            <p class="dropzone-desc">Drag & drop PNG, JPG, WEBP, GIF, or BMP (up to 25MB)</p>
-            <div class="dropzone-formats">
-              <span class="format-pill">PNG</span>
-              <span class="format-pill">JPG</span>
-              <span class="format-pill">WEBP</span>
-              <span class="format-pill">GIF</span>
-              <span class="format-pill">BMP</span>
-            </div>
-            <input type="file" id="fileInput" class="file-input-hidden" accept="image/png, image/jpeg, image/webp, image/gif, image/bmp">
+        <!-- Interactive 2-Box Format Selector Bar -->
+        <div class="converter-format-bar">
+          <div class="format-select-group">
+            <span class="format-group-label">From:</span>
+            <select id="formatFrom" class="format-select-dropdown" aria-label="Convert from format">
+              <option value="auto" selected>✨ Auto-Detect</option>
+              <option value="png">PNG (.png)</option>
+              <option value="jpg">JPG / JPEG (.jpg)</option>
+              <option value="webp">WEBP (.webp)</option>
+              <option value="svg">SVG Vector (.svg)</option>
+              <option value="bmp">BMP (.bmp)</option>
+              <option value="gif">GIF (.gif)</option>
+            </select>
           </div>
 
-          <!-- Processing Card -->
-          <div class="processing-card" id="processingCard">
-            <h4 class="panel-title" style="justify-content: center;">Vectorizing Image...</h4>
-            <div class="progress-bar-bg">
-              <div class="progress-bar-fill" id="progressBar"></div>
+          <button type="button" class="swap-format-btn" id="swapFormatsBtn" title="Swap From and To formats" aria-label="Swap formats">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 5h18"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 19H3"></path>
+            </svg>
+          </button>
+
+          <div class="format-select-group">
+            <span class="format-group-label">To:</span>
+            <select id="formatTo" class="format-select-dropdown" aria-label="Convert to format">
+              <option value="svg" selected>⚡ SVG (Clean Scalable Vector)</option>
+              <option value="png">🖼️ PNG (High-Res Raster 8x)</option>
+              <option value="jpg">📷 JPG (Crisp Image)</option>
+              <option value="webp">🌐 WEBP (Modern Web)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dropzone Area -->
+        <div class="dropzone-container" id="dropzone">
+          <div class="dropzone-icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </div>
+          <h3 class="dropzone-title" id="dropzoneTitle">Drop your image here, or browse files</h3>
+          <p class="dropzone-desc" id="dropzoneDesc">Supports PNG, JPG, WEBP, SVG, GIF, BMP (up to 25MB)</p>
+          <div class="conversion-pill-status" id="conversionPill">
+            <span id="pillFrom">ANY IMAGE</span> ➔ <span id="pillTo">SVG</span>
+          </div>
+          <div class="dropzone-formats" style="margin-top: 0.85rem;">
+            <span class="format-pill">PNG</span>
+            <span class="format-pill">JPG</span>
+            <span class="format-pill">WEBP</span>
+            <span class="format-pill">SVG</span>
+            <span class="format-pill">GIF</span>
+            <span class="format-pill">BMP</span>
+          </div>
+          <input type="file" id="fileInput" class="file-input-hidden" accept="image/png, image/jpeg, image/webp, image/gif, image/bmp, image/svg+xml, .svg">
+        </div>
+
+        <!-- Processing Progress Card -->
+        <div class="processing-card" id="processingCard">
+          <h4 class="panel-title" style="justify-content: center;">Processing Conversion...</h4>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBar"></div>
+          </div>
+          <p class="processing-status" id="progressStatus">Analyzing image pixels and contours...</p>
+        </div>
+
+        <!-- Dual Results Workspace -->
+        <div class="results-workspace" id="resultsWorkspace">
+          <!-- Left: Preview Stage -->
+          <div class="preview-stage">
+            <div class="preview-header">
+              <div class="preview-tabs">
+                <button type="button" class="preview-tab-btn active" id="tabVector">Converted Result</button>
+                <button type="button" class="preview-tab-btn" id="tabOriginal">Original Image</button>
+              </div>
+              <div class="stats-badges">
+                <button type="button" class="badge-stat" id="zoomOutBtn" title="Zoom Out">−</button>
+                <button type="button" class="badge-stat" id="zoomResetBtn" title="Reset Zoom">100%</button>
+                <button type="button" class="badge-stat" id="zoomInBtn" title="Zoom In">+</button>
+              </div>
             </div>
-            <p class="processing-status" id="progressStatus">Analyzing pixels and contours...</p>
+
+            <div class="preview-box" id="previewBox">
+              <!-- Rendered Dynamically -->
+            </div>
+
+            <div class="preview-stats-bar">
+              <div class="stats-badges">
+                <span class="badge-stat" id="statDimensions">0 × 0 px</span>
+                <span class="badge-stat" id="statPaths">0 paths</span>
+              </div>
+              <div class="stats-badges">
+                <span class="badge-stat" id="statSvgSize">0 KB</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Results Workspace -->
-          <div class="results-workspace" id="resultsWorkspace">
-            <!-- Left: Preview Stage -->
-            <div class="preview-stage">
-              <div class="preview-header">
-                <div class="preview-tabs">
-                  <button type="button" class="preview-tab-btn active" id="tabVector">Vector SVG</button>
-                  <button type="button" class="preview-tab-btn" id="tabOriginal">Original Image</button>
-                </div>
-                <div class="stats-badges">
-                  <button type="button" class="badge-stat" id="zoomOutBtn" title="Zoom Out">−</button>
-                  <button type="button" class="badge-stat" id="zoomResetBtn" title="Reset Zoom">100%</button>
-                  <button type="button" class="badge-stat" id="zoomInBtn" title="Zoom In">+</button>
-                </div>
-              </div>
-
-              <!-- Preview Canvas / SVG Box -->
-              <div class="preview-box" id="previewBox">
-                <!-- Vector or Original Image Rendered Dynamically -->
-              </div>
-
-              <div class="preview-stats-bar">
-                <div class="stats-badges">
-                  <span class="badge-stat" id="statDimensions">0 × 0 px</span>
-                  <span class="badge-stat" id="statPaths">0 paths</span>
-                </div>
-                <div class="stats-badges">
-                  <span class="badge-stat" id="statSvgSize">0 KB</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Controls & Actions Panel -->
-            <div class="controls-panel">
+          <!-- Right: Controls & Actions Panel -->
+          <div class="controls-panel">
+            
+            <!-- Vector Tracing Controls (Visible when target is SVG) -->
+            <div id="vectorControls">
               <h3 class="panel-title">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="12" cy="12" r="3"></circle>
@@ -225,7 +267,6 @@
                 Vector Settings
               </h3>
 
-              <!-- Mode Segmented Buttons -->
               <div class="control-group">
                 <label class="control-label">Tracing Style</label>
                 <div class="segmented-toggle">
@@ -234,16 +275,14 @@
                 </div>
               </div>
 
-              <!-- Color Palette Slider -->
               <div class="control-group" id="colorControlGroup">
                 <div class="control-label">
                   <span>Number of Colors</span>
-                  <span class="control-badge" id="colorsVal">8</span>
+                  <span class="control-badge" id="colorsVal">3 (Clean Logo)</span>
                 </div>
-                <input type="range" class="slider-input" id="colorsSlider" min="2" max="32" value="8">
+                <input type="range" class="slider-input" id="colorsSlider" min="2" max="32" value="3">
               </div>
 
-              <!-- Monochrome Threshold Slider -->
               <div class="control-group" id="monoControlGroup" style="display: none;">
                 <div class="control-label">
                   <span>B&W Threshold</span>
@@ -252,27 +291,24 @@
                 <input type="range" class="slider-input" id="thresholdSlider" min="10" max="245" value="128">
               </div>
 
-              <!-- Smoothness Slider -->
               <div class="control-group">
                 <div class="control-label">
                   <span>Curve Smoothness</span>
-                  <span class="control-badge" id="smoothnessVal">Balanced</span>
+                  <span class="control-badge" id="smoothnessVal">Crisp Logo (Sharp)</span>
                 </div>
-                <input type="range" class="slider-input" id="smoothnessSlider" min="0" max="2" value="1">
+                <input type="range" class="slider-input" id="smoothnessSlider" min="0" max="2" value="0">
               </div>
 
-              <!-- Remove Background Toggle -->
               <div class="control-group">
                 <label class="toggle-row">
                   <span class="control-label" style="margin: 0;">Remove Background</span>
                   <label class="switch">
-                    <input type="checkbox" id="removeBgToggle">
+                    <input type="checkbox" id="removeBgToggle" checked>
                     <span class="slider-switch"></span>
                   </label>
                 </label>
               </div>
 
-              <!-- Invert Toggle -->
               <div class="control-group">
                 <label class="toggle-row">
                   <span class="control-label" style="margin: 0;">Invert Colors</span>
@@ -283,7 +319,6 @@
                 </label>
               </div>
 
-              <!-- Actions -->
               <div class="action-buttons">
                 <button type="button" class="btn-primary" id="downloadSvgBtn">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -301,203 +336,312 @@
                   Copy SVG Code
                 </button>
                 <button type="button" class="btn-secondary" id="viewCodeBtn">View Code</button>
-                <button type="button" class="btn-secondary" id="convertAnotherBtn" style="color: var(--text-muted);">Convert Another Image</button>
               </div>
             </div>
-          </div>
-        </section>
 
-        <!-- Google AdSense: In-Content Ad Slot -->
-        <div class="ad-slot-wrapper">
-          <span class="ad-label">Advertisement</span>
-          <div class="ad-box in-content" id="ad-in-content">
-            <span>Google AdSense In-Feed / In-Article Responsive Ad</span>
+            <!-- Raster Output Controls (Visible when target is PNG, JPG, or WEBP) -->
+            <div id="rasterControls" style="display: none;">
+              <h3 class="panel-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                Raster Output Settings
+              </h3>
+
+              <div class="control-group">
+                <label class="control-label">Export Resolution Scale</label>
+                <select class="slider-input" id="rasterScale" style="padding: 0.5rem; background: #fff; cursor: pointer;">
+                  <option value="1">1x Standard Resolution (Web)</option>
+                  <option value="2" selected>2x High Resolution (Retina)</option>
+                  <option value="4">4x Ultra-HD (Print Quality)</option>
+                  <option value="8">8x Maximum Quality (Billboard / Poster)</option>
+                </select>
+              </div>
+
+              <div class="control-group">
+                <div class="control-label">
+                  <span>Background Color</span>
+                </div>
+                <input type="color" id="rasterBgColor" value="#ffffff" style="width: 100%; height: 38px; border-radius: 6px; border: 1px solid #cbd5e1; cursor: pointer;">
+              </div>
+
+              <div class="control-group">
+                <label class="toggle-row">
+                  <span class="control-label" style="margin: 0;">Transparent Background (PNG/WEBP)</span>
+                  <label class="switch">
+                    <input type="checkbox" id="rasterTransparentToggle" checked>
+                    <span class="slider-switch"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="control-group" id="rasterQualityGroup" style="display: none;">
+                <div class="control-label">
+                  <span>Output Quality</span>
+                  <span class="control-badge" id="rasterQualityVal">92%</span>
+                </div>
+                <input type="range" class="slider-input" id="rasterQualitySlider" min="0.5" max="1" step="0.02" value="0.92">
+              </div>
+
+              <div class="action-buttons">
+                <button type="button" class="btn-primary" id="downloadRasterBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Download Converted Image
+                </button>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem;">
+              <button type="button" class="btn-secondary" id="convertAnotherBtn" style="width: 100%; color: var(--text-muted);">
+                Convert Another Image
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Converters Section (Directly Below the Converter Tool Card) -->
+      <section class="popular-converters-wrapper">
+        <div class="popular-header-row">
+          <div>
+            <h3 class="popular-converters-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              Popular Converters
+            </h3>
+            <p class="popular-converters-subtitle">Click any converter to auto-configure your conversion formats instantly</p>
           </div>
         </div>
 
-        <!-- How It Works Section (Schema.org HowTo Markup) -->
-        <section class="content-section">
-          <h2>How to Convert Any Image to SVG Vector Online</h2>
-          <p>Converting bitmap graphics (PNG, JPG, WEBP) into crisp mathematical vectors has never been easier. Follow these three quick steps:</p>
-
-          <div class="steps-container">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <h4 class="step-title">Upload Image</h4>
-              <p class="step-text">Select or drag & drop any image from your computer or phone. No sign-up required.</p>
+        <div class="popular-converters-grid">
+          <div class="popular-card" data-from="png" data-to="svg">
+            <span class="popular-card-badge">Most Popular</span>
+            <div class="popular-card-icons">
+              <span class="ext-tag ext-png">PNG</span>
+              <span class="arrow-icon">➔</span>
+              <span class="ext-tag ext-svg">SVG</span>
             </div>
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <h4 class="step-title">Customize Vectors</h4>
-              <p class="step-text">Fine-tune the number of colors, edge smoothness, and remove backgrounds with real-time preview.</p>
-            </div>
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <h4 class="step-title">Download SVG</h4>
-              <p class="step-text">Export clean, standard SVG code ready for Adobe Illustrator, Figma, Cricut, laser cutting, or web development.</p>
-            </div>
+            <div class="popular-card-name">PNG to SVG</div>
+            <div class="popular-card-desc">Vectorize PNG logos, icons & transparent art into clean SVG paths</div>
           </div>
 
-          <h2>Why Choose Real Path Tracing Over Fake SVG Wrappers?</h2>
-          <p>
-            Many free tools on the web claim to convert PNG or JPG to SVG, but in reality, they merely encode your raster image as a Base64 string and embed it inside a <code>&lt;image&gt;</code> tag. When you zoom in, the image still blurs and pixelates, and it cannot be used for vinyl cutting, embroidery, or CNC machines.
-          </p>
-          <p>
-            <strong>AnySVG is different:</strong> Our built-in vectorization algorithm traces actual pixel contours, performs intelligent color quantization, and outputs genuine SVG <code>&lt;path&gt;</code> elements with clean curves. Whether you need vectors for logos, icons, t-shirt printing, or Cricut cutting machines, AnySVG delivers real vector output.
-          </p>
-
-          <!-- Features Grid -->
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon-wrapper">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-              </div>
-              <h4 class="feature-title">100% Private & Secure</h4>
-              <p class="feature-desc">All conversions occur client-side inside your browser. Your images never touch our servers.</p>
+          <div class="popular-card" data-from="jpg" data-to="svg">
+            <span class="popular-card-badge">Fast Tracing</span>
+            <div class="popular-card-icons">
+              <span class="ext-tag ext-jpg">JPG</span>
+              <span class="arrow-icon">➔</span>
+              <span class="ext-tag ext-svg">SVG</span>
             </div>
-
-            <div class="feature-card">
-              <div class="feature-icon-wrapper">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-              </div>
-              <h4 class="feature-title">Blazing Fast Speed</h4>
-              <p class="feature-desc">Powered by pure JavaScript and HTML5 Canvas with instant real-time live preview updates.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon-wrapper">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="m4.93 4.93 4.24 4.24"></path>
-                  <path d="m14.83 9.17 4.24-4.24"></path>
-                  <path d="m14.83 14.83 4.24 4.24"></path>
-                  <path d="m9.17 14.83-4.24 4.24"></path>
-                </svg>
-              </div>
-              <h4 class="feature-title">Cricut & CNC Ready</h4>
-              <p class="feature-desc">Outputs clean, layered path geometry compatible with cutting plotters, laser cutters, and Figma.</p>
-            </div>
+            <div class="popular-card-name">JPG to SVG</div>
+            <div class="popular-card-desc">Convert photographic JPGs to stylized, scalable vector graphics</div>
           </div>
 
-          <!-- FAQ Section with Schema -->
-          <h2>Frequently Asked Questions</h2>
-          <div class="faq-list">
-            <div class="faq-item open">
-              <button class="faq-question">
-                <span>What is the difference between raster images and SVG vectors?</span>
-                <span class="faq-icon">▼</span>
-              </button>
-              <div class="faq-answer">
-                Raster images (like PNG and JPG) are composed of a fixed grid of colored pixels. When you enlarge them, they lose sharpness and become pixelated. In contrast, SVG (Scalable Vector Graphics) are defined by mathematical formulas (points, lines, and curves). You can scale an SVG to billboard size without any loss of quality.
-              </div>
+          <div class="popular-card" data-from="webp" data-to="svg">
+            <span class="popular-card-badge">Modern</span>
+            <div class="popular-card-icons">
+              <span class="ext-tag ext-webp">WEBP</span>
+              <span class="arrow-icon">➔</span>
+              <span class="ext-tag ext-svg">SVG</span>
             </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                <span>Can I convert multi-colored images into SVG?</span>
-                <span class="faq-icon">▼</span>
-              </button>
-              <div class="faq-answer">
-                Yes! AnySVG features an advanced Color Quantization engine that groups colors into distinct palette layers (from 2 up to 32 colors). Each color is traced into its own separate path layer in the final SVG file.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                <span>Is this tool completely free to use?</span>
-                <span class="faq-icon">▼</span>
-              </button>
-              <div class="faq-answer">
-                Yes, AnySVG is 100% free with no watermarks, no registration, and no hidden subscriptions. You can convert as many images as you like.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                <span>Will AnySVG keep my uploaded graphics confidential?</span>
-                <span class="faq-icon">▼</span>
-              </button>
-              <div class="faq-answer">
-                Absolutely. Because our vectorization engine runs entirely locally inside your browser using HTML5 Canvas, your graphics never leave your computer.
-              </div>
-            </div>
+            <div class="popular-card-name">WEBP to SVG</div>
+            <div class="popular-card-desc">Trace modern compressed WEBP files into infinite-resolution vectors</div>
           </div>
-        </section>
 
+          <div class="popular-card" data-from="svg" data-to="png">
+            <span class="popular-card-badge">High-Res 8x</span>
+            <div class="popular-card-icons">
+              <span class="ext-tag ext-svg">SVG</span>
+              <span class="arrow-icon">➔</span>
+              <span class="ext-tag ext-png">PNG</span>
+            </div>
+            <div class="popular-card-name">SVG to PNG</div>
+            <div class="popular-card-desc">Export scalable SVG vectors into ultra high-DPI raster PNG images</div>
+          </div>
+
+          <div class="popular-card" data-from="svg" data-to="jpg">
+            <span class="popular-card-badge">Custom BG</span>
+            <div class="popular-card-icons">
+              <span class="ext-tag ext-svg">SVG</span>
+              <span class="arrow-icon">➔</span>
+              <span class="ext-tag ext-jpg">JPG</span>
+            </div>
+            <div class="popular-card-name">SVG to JPG</div>
+            <div class="popular-card-desc">Render SVG graphics into crisp JPGs with solid background fill</div>
+          </div>
+
+          <div class="popular-card" data-from="svg" data-to="webp">
+            <span class="popular-card-badge">Ultra Light</span>
+            <div class="popular-card-icons">
+              <span class="ext-tag ext-svg">SVG</span>
+              <span class="arrow-icon">➔</span>
+              <span class="ext-tag ext-webp">WEBP</span>
+            </div>
+            <div class="popular-card-name">SVG to WEBP</div>
+            <div class="popular-card-desc">Generate lightweight next-generation web images from SVG vectors</div>
+          </div>
+
+          <div class="popular-card" data-from="bmp" data-to="svg">
+            <span class="popular-card-badge">Lossless</span>
+            <div class="popular-card-icons">
+              <span class="ext-tag ext-bmp">BMP</span>
+              <span class="arrow-icon">➔</span>
+              <span class="ext-tag ext-svg">SVG</span>
+            </div>
+            <div class="popular-card-name">BMP to SVG</div>
+            <div class="popular-card-desc">Convert uncompressed bitmap images to crisp vectorized paths</div>
+          </div>
+
+          <div class="popular-card" data-from="gif" data-to="svg">
+            <span class="popular-card-badge">Graphics</span>
+            <div class="popular-card-icons">
+              <span class="ext-tag ext-gif">GIF</span>
+              <span class="arrow-icon">➔</span>
+              <span class="ext-tag ext-svg">SVG</span>
+            </div>
+            <div class="popular-card-name">GIF to SVG</div>
+            <div class="popular-card-desc">Trace flat GIF drawings, diagrams, and clipart into SVG graphics</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Google AdSense: High-CTR In-Content Ad Slot -->
+      <div class="ad-slot-wrapper">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-box in-content" id="ad-in-content">
+          <span>Google AdSense In-Feed / In-Article Responsive Ad (High Engagement)</span>
+        </div>
       </div>
 
-      <!-- Right Sidebar -->
-      <aside class="sidebar">
-        <!-- Sidebar Widget: Supported Tools -->
-        <div class="sidebar-widget">
-          <h3 class="widget-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-            Popular Converters
-          </h3>
-          <ul class="tools-nav-list">
-            <li class="tool-nav-item">
-              <a href="png-to-svg.html">
-                <span>PNG to SVG</span>
-                <span class="tool-nav-tag">Popular</span>
-              </a>
-            </li>
-            <li class="tool-nav-item">
-              <a href="jpg-to-svg.html">
-                <span>JPG to SVG</span>
-                <span class="tool-nav-tag">Fast</span>
-              </a>
-            </li>
-            <li class="tool-nav-item">
-              <a href="webp-to-svg.html">
-                <span>WEBP to SVG</span>
-                <span class="tool-nav-tag">Modern</span>
-              </a>
-            </li>
-            <li class="tool-nav-item">
-              <a href="svg-to-png.html">
-                <span>SVG to PNG</span>
-                <span class="tool-nav-tag">HD 8x</span>
-              </a>
-            </li>
-            <li class="tool-nav-item">
-              <a href="svg-to-jpg.html">
-                <span>SVG to JPG</span>
-                <span class="tool-nav-tag">Custom BG</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+      <!-- How It Works Section (Schema.org HowTo Markup) -->
+      <section class="content-section">
+        <h2>How to Convert Any Image to SVG Vector Online</h2>
+        <p>Converting bitmap graphics (PNG, JPG, WEBP) into crisp mathematical vectors has never been easier. Follow these three quick steps:</p>
 
-        <!-- Google AdSense: Sidebar Sticky Skyscraper Ad (300x600) -->
-        <div class="ad-slot-wrapper">
-          <span class="ad-label">Advertisement</span>
-          <div class="ad-box sidebar-ad" id="ad-sidebar">
-            <span>Google AdSense Half Page / Large Skyscraper (300x600)</span>
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h4 class="step-title">Select Format & Upload</h4>
+            <p class="step-text">Choose your source and target formats (e.g. PNG to SVG), then drop your file into the converter box.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h4 class="step-title">Customize Vectors</h4>
+            <p class="step-text">Fine-tune the number of colors, edge smoothness, and remove backgrounds with live real-time preview.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h4 class="step-title">Download SVG</h4>
+            <p class="step-text">Export clean, standard SVG code ready for Adobe Illustrator, Figma, Cricut, laser cutting, or web development.</p>
           </div>
         </div>
 
-        <!-- Sidebar Widget: Quick Tips -->
-        <div class="sidebar-widget">
-          <h3 class="widget-title">💡 Vectorization Tips</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
-            <strong>For logos & icons:</strong> Use 4 to 8 colors with "Balanced" curve smoothness for clean, sharp edges.
-          </p>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
-            <strong>For Cricut cutting:</strong> Toggle "Black & White" mode to generate single-color cut paths effortlessly.
-          </p>
-          <a href="blog/how-to-convert-png-to-svg.html" style="font-size: 0.82rem; font-weight: 700;">Read complete vector guide →</a>
+        <h2>Why Choose Real Path Tracing Over Fake SVG Wrappers?</h2>
+        <p>
+          Many free tools on the web claim to convert PNG or JPG to SVG, but in reality, they merely encode your raster image as a Base64 string and embed it inside a <code>&lt;image&gt;</code> tag. When you zoom in, the image still blurs and pixelates, and it cannot be used for vinyl cutting, embroidery, or CNC machines.
+        </p>
+        <p>
+          <strong>AnySVG is different:</strong> Our built-in vectorization algorithm traces actual pixel contours, performs intelligent color quantization, and outputs genuine SVG <code>&lt;path&gt;</code> elements with clean curves. Whether you need vectors for logos, icons, t-shirt printing, or Cricut cutting machines, AnySVG delivers real vector output.
+        </p>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h4 class="feature-title">100% Private & Secure</h4>
+            <p class="feature-desc">All conversions occur client-side inside your browser. Your images never touch our servers or cloud storage.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+            </div>
+            <h4 class="feature-title">Infinite Resolution</h4>
+            <p class="feature-desc">Scale your vectors to billboard sizes or laser-engrave without a single jagged pixel or loss of quality.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h4 class="feature-title">Ultra Fast Processing</h4>
+            <p class="feature-desc">Optimized non-recursive Douglas-Peucker algorithm processes logos and graphics in milliseconds.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h4 class="feature-title">Universal Compatibility</h4>
+            <p class="feature-desc">SVG outputs are 100% compliant with Adobe Illustrator, CorelDRAW, Inkscape, Figma, and Cricut Design Space.</p>
+          </div>
         </div>
-      </aside>
+
+        <!-- FAQ Section -->
+        <h2 style="margin-top: 3rem;">Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What is the difference between raster images and SVG vectors?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              Raster images (like PNG, JPG, and WEBP) are made of a fixed grid of colored pixels. When you enlarge them, they become blurry and pixelated. SVG (Scalable Vector Graphics) files use mathematical formulas with lines, curves, and coordinates, allowing them to scale infinitely to any size without any loss in clarity.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I convert multi-colored images into SVG?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              Yes! AnySVG features an advanced Color Quantization engine that groups colors into distinct palette layers (from 2 up to 32 colors). Each color is traced into its own separate path layer in the final SVG file.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is this tool completely free to use?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              Yes, AnySVG is 100% free with no watermarks, no registration, and no hidden subscriptions. You can convert as many images as you like.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Will AnySVG keep my uploaded graphics confidential?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              Absolutely. Because our vectorization and rasterization engine runs entirely locally inside your browser using HTML5 Canvas, your graphics never leave your computer.
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 
@@ -523,15 +667,12 @@
     </div>
   </div>
 
-  <!-- Toast Container -->
-  <div class="toast-container" id="toastContainer"></div>
-
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-top">
-        <div>
-          <a href="index.html" class="brand-logo">
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 0.5rem;">
             <div class="brand-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                 <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
@@ -540,9 +681,9 @@
               </svg>
             </div>
             <span>Any<span style="color: var(--primary);">SVG</span></span>
-          </a>
-          <p class="footer-brand-desc">
-            The free, private, high-performance image vectorizer. Convert raster images into crisp SVG files instantly in your browser.
+          </div>
+          <p class="footer-desc">
+            The free, private, high-performance vector graphics toolkit. Convert PNG, JPG, and WEBP to genuine SVG vector paths in your browser with zero server data storage.
           </p>
         </div>
 
@@ -591,6 +732,7 @@
 
   <!-- Scripts -->
   <script src="js/imagetracer.js"></script>
+  <script src="js/rasterizer.js"></script>
   <script src="js/common.js"></script>
   <script src="js/vectorizer.js"></script>
 </body>
