@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - AnySVG Support & Inquiries</title>
+  <meta name="description" content="Get in touch with the AnySVG support team for technical assistance, partnership opportunities, or feedback.">
+  <link rel="canonical" href="https://anysvg.com/contact.html">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>Any<span style="color: var(--primary);">SVG</span></span>
+        <span class="brand-tag">PRO</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="png-to-svg.html" class="nav-link">PNG to SVG</a></li>
+          <li><a href="jpg-to-svg.html" class="nav-link">JPG to SVG</a></li>
+          <li><a href="svg-to-png.html" class="nav-link">SVG to PNG</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="main-layout full-width">
+      <article class="content-section" style="max-width: 720px; margin: 0 auto;">
+        <h1>Contact the AnySVG Team</h1>
+        <p class="hero-subtitle" style="margin: 0.5rem 0 2rem; text-align: left;">
+          Have questions, bug reports, or feature ideas? We'd love to hear from you.
+        </p>
+
+        <form id="contactForm" onsubmit="handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div>
+            <label style="display: block; font-weight: 700; margin-bottom: 0.35rem; font-size: 0.9rem;">Your Name</label>
+            <input type="text" required placeholder="John Doe" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); outline: none;">
+          </div>
+
+          <div>
+            <label style="display: block; font-weight: 700; margin-bottom: 0.35rem; font-size: 0.9rem;">Email Address</label>
+            <input type="email" required placeholder="you@domain.com" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); outline: none;">
+          </div>
+
+          <div>
+            <label style="display: block; font-weight: 700; margin-bottom: 0.35rem; font-size: 0.9rem;">Subject</label>
+            <select style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); outline: none; background: #fff;">
+              <option>Technical Question / Bug Report</option>
+              <option>Feature Request</option>
+              <option>Advertising / Partnership</option>
+              <option>General Feedback</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-weight: 700; margin-bottom: 0.35rem; font-size: 0.9rem;">Message</label>
+            <textarea required rows="5" placeholder="How can we help you today?" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); outline: none; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="align-self: flex-start; padding: 0.85rem 2rem;">
+            Send Message
+          </button>
+        </form>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.5rem;">
+          <h3 style="margin: 0;">Direct Email Inquiries</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem;">
+            You can also email our support desk directly at: <a href="mailto:support@anysvg.com" style="font-weight: 700;">support@anysvg.com</a>
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">
+            We usually respond to all technical inquiries within 24 to 48 hours.
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div>© 2026 AnySVG. Contact and Support.</div>
+        <div><a href="privacy-policy.html">Privacy Policy</a> • <a href="terms.html">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      showToast('Thank you! Your message has been sent successfully.', 4000);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

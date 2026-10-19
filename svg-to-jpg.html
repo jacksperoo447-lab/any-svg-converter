@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG to JPG Converter - Custom Background Color & High Quality | AnySVG</title>
+  <meta name="description" content="Convert SVG vector files to crisp JPG images online for free. Custom background color picker, quality compression controls, and high DPI resolution.">
+  <meta name="keywords" content="svg to jpg, convert svg to jpeg, svg to jpg converter, svg to image, vector to jpg">
+  <link rel="canonical" href="https://anysvg.com/svg-to-jpg.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anysvg.com/svg-to-jpg.html">
+  <meta property="og:title" content="SVG to JPG Converter - Custom Backgrounds & High Quality">
+  <meta property="og:description" content="Render SVG files into crisp JPG pictures with custom background colors and adjustable compression quality.">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "AnySVG SVG to JPG Converter",
+        "operatingSystem": "All (Web Browser)",
+        "applicationCategory": "MultimediaApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Convert SVG to high-quality JPG images with custom background fills."
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-target-format="jpg">
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>Any<span style="color: var(--primary);">SVG</span></span>
+        <span class="brand-tag">PRO</span>
+      </a>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="png-to-svg.html" class="nav-link">PNG to SVG</a></li>
+          <li><a href="jpg-to-svg.html" class="nav-link">JPG to SVG</a></li>
+          <li><a href="svg-to-png.html" class="nav-link">SVG to PNG</a></li>
+          <li><a href="svg-to-jpg.html" class="nav-link active">SVG to JPG</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-box leaderboard">
+      <span>Google AdSense Responsive Leaderboard (728x90)</span>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="main-layout">
+      <div class="main-content-column">
+        
+        <section class="hero-section">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>Custom Background Color Picker • Adjustable JPG Quality</span>
+          </div>
+          <h1 class="hero-title">
+            Online <span class="gradient-text">SVG to JPG Converter</span>
+          </h1>
+          <p class="hero-subtitle">
+            Convert vector SVG artwork into lightweight, universal JPG photos. Choose custom background fills and fine-tune compression levels.
+          </p>
+        </section>
+
+        <!-- Tool Card -->
+        <section class="tool-card" id="converter">
+          <div class="dropzone-container" id="dropzone">
+            <div class="dropzone-icon">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="dropzone-title">Drop your SVG file here</h3>
+            <p class="dropzone-desc">Upload SVG vector document (up to 20MB)</p>
+            <div class="dropzone-formats">
+              <span class="format-pill" style="border-color: var(--primary); color: var(--primary);">.SVG Format</span>
+              <span class="format-pill">JPG Output</span>
+              <span class="format-pill">Solid Background</span>
+            </div>
+            <input type="file" id="fileInput" class="file-input-hidden" accept=".svg, image/svg+xml">
+          </div>
+
+          <!-- Results Workspace -->
+          <div class="results-workspace" id="resultsWorkspace">
+            <div class="preview-stage">
+              <div class="preview-header">
+                <span style="font-weight: 700; font-size: 0.95rem;">JPG Preview</span>
+                <div class="stats-badges">
+                  <span class="badge-stat" id="statDimensions">0 × 0 px</span>
+                  <span class="badge-stat" id="statOutputSize">0 KB</span>
+                </div>
+              </div>
+
+              <div class="preview-box" id="previewBox"></div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="controls-panel">
+              <h3 class="panel-title">Export Settings</h3>
+
+              <div class="control-group">
+                <label class="control-label">Resolution Scale</label>
+                <select id="scaleSelector" style="width: 100%; padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-weight: 600;">
+                  <option value="1">1x Standard</option>
+                  <option value="2" selected>2x High Resolution</option>
+                  <option value="4">4x Ultra HD</option>
+                </select>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Background Color (Required for JPG)</label>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                  <input type="color" id="bgColorInput" value="#ffffff" style="width: 44px; height: 38px; border: 1px solid var(--border-subtle); border-radius: 6px; cursor: pointer;">
+                  <span style="font-size: 0.85rem; color: var(--text-secondary);">Default is White (#FFFFFF)</span>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="control-label">
+                  <span>JPG Quality</span>
+                  <span class="control-badge" id="qualityVal">92%</span>
+                </div>
+                <input type="range" class="slider-input" id="qualitySlider" min="0.5" max="1" step="0.05" value="0.92">
+              </div>
+
+              <div class="action-buttons">
+                <button type="button" class="btn-primary" id="downloadRasterBtn">Download JPG</button>
+                <button type="button" class="btn-secondary" id="convertAnotherBtn" style="color: var(--text-muted);">Convert Another SVG</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="ad-slot-wrapper">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box in-content">
+            <span>Google AdSense In-Article Responsive Ad</span>
+          </div>
+        </div>
+
+        <section class="content-section">
+          <h2>Why Convert SVG to JPG?</h2>
+          <p>
+            JPEG is the universally supported format across every web browser, operating system, and hardware device. When you need to send an SVG vector graphic to a client or upload it to platforms that reject SVG files (due to XML security policies), converting to JPG is the quickest solution.
+          </p>
+          <p>
+            Because the JPG format does not support transparency, transparent areas must be filled with a solid color. AnySVG provides an intuitive color picker allowing you to specify the exact background color to match your branding.
+          </p>
+        </section>
+
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h3 class="widget-title">Convert Other Formats</h3>
+          <ul class="tools-nav-list">
+            <li class="tool-nav-item"><a href="index.html"><span>Any to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="png-to-svg.html"><span>PNG to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="jpg-to-svg.html"><span>JPG to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="svg-to-png.html"><span>SVG to PNG</span></a></li>
+            <li class="tool-nav-item"><a href="svg-to-jpg.html" class="active"><span>SVG to JPG</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ad-slot-wrapper">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box sidebar-ad">
+            <span>Google AdSense Sidebar Skyscraper (300x600)</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div>© 2026 AnySVG. Online SVG to JPG converter.</div>
+        <div><a href="privacy-policy.html">Privacy Policy</a> • <a href="terms.html">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/rasterizer.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/reverse-converter.js"></script>
+</body>
+</html>

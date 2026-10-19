@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PNG to SVG Converter - Convert PNG to Vector Free & Online | AnySVG</title>
+  <meta name="description" content="Convert PNG to SVG online for free. Trace transparent PNG logos, icons, and illustrations into clean, scalable vector paths without quality loss.">
+  <meta name="keywords" content="png to svg, convert png to svg, png to vector, transparent png to svg, free png to svg converter">
+  <link rel="canonical" href="https://anysvg.com/png-to-svg.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anysvg.com/png-to-svg.html">
+  <meta property="og:title" content="PNG to SVG Converter - Clean Vector Tracing">
+  <meta property="og:description" content="Convert transparent PNG logos and graphics into scalable SVG paths. 100% private, free, and in-browser.">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "AnySVG PNG to SVG Converter",
+        "operatingSystem": "All (Web Browser)",
+        "applicationCategory": "MultimediaApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Convert transparent PNG files to genuine SVG vector paths with custom color quantization and smoothing."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does AnySVG preserve transparent backgrounds from PNGs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! AnySVG detects transparent alpha channels in your PNG image automatically and ignores them during tracing, creating a transparent SVG."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why convert PNG to SVG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PNG files have fixed pixel dimensions and become blurry when enlarged. SVGs scale infinitely to any resolution without pixelation, making them ideal for high-DPI screens, logos, and vinyl cutting."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>Any<span style="color: var(--primary);">SVG</span></span>
+        <span class="brand-tag">PRO</span>
+      </a>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="png-to-svg.html" class="nav-link active">PNG to SVG</a></li>
+          <li><a href="jpg-to-svg.html" class="nav-link">JPG to SVG</a></li>
+          <li><a href="svg-to-png.html" class="nav-link">SVG to PNG</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="#converter" class="header-cta">Convert PNG</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Google AdSense: Top Leaderboard -->
+  <div class="ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-box leaderboard" id="ad-top-leaderboard">
+      <span>Google AdSense Responsive Leaderboard (728x90)</span>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="main-layout">
+      <div class="main-content-column">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>Target Keyword Tool • Preserves Alpha Transparency</span>
+          </div>
+          <h1 class="hero-title">
+            Free Online <span class="gradient-text">PNG to SVG Converter</span>
+          </h1>
+          <p class="hero-subtitle">
+            Turn raster PNG logos, icons, and transparent graphics into scalable SVG vectors. Crisp curves, zero pixelation, and instant download.
+          </p>
+        </section>
+
+        <!-- Main Tool Card -->
+        <section class="tool-card" id="converter">
+          <!-- Dropzone -->
+          <div class="dropzone-container" id="dropzone">
+            <div class="dropzone-icon">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="dropzone-title">Drop your PNG file here</h3>
+            <p class="dropzone-desc">Select transparent or opaque PNG image (up to 25MB)</p>
+            <div class="dropzone-formats">
+              <span class="format-pill" style="border-color: var(--primary); color: var(--primary);">PNG Recommended</span>
+              <span class="format-pill">Transparent PNG</span>
+              <span class="format-pill">PNG Icons</span>
+            </div>
+            <input type="file" id="fileInput" class="file-input-hidden" accept="image/png, image/jpeg, image/webp">
+          </div>
+
+          <!-- Processing Card -->
+          <div class="processing-card" id="processingCard">
+            <h4 class="panel-title" style="justify-content: center;">Tracing PNG Paths...</h4>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+            <p class="processing-status" id="progressStatus">Vectorizing PNG pixels...</p>
+          </div>
+
+          <!-- Results Workspace -->
+          <div class="results-workspace" id="resultsWorkspace">
+            <div class="preview-stage">
+              <div class="preview-header">
+                <div class="preview-tabs">
+                  <button type="button" class="preview-tab-btn active" id="tabVector">Vector SVG</button>
+                  <button type="button" class="preview-tab-btn" id="tabOriginal">Original PNG</button>
+                </div>
+                <div class="stats-badges">
+                  <button type="button" class="badge-stat" id="zoomOutBtn">−</button>
+                  <button type="button" class="badge-stat" id="zoomResetBtn">100%</button>
+                  <button type="button" class="badge-stat" id="zoomInBtn">+</button>
+                </div>
+              </div>
+
+              <div class="preview-box" id="previewBox"></div>
+
+              <div class="preview-stats-bar">
+                <div class="stats-badges">
+                  <span class="badge-stat" id="statDimensions">0 × 0 px</span>
+                  <span class="badge-stat" id="statPaths">0 paths</span>
+                </div>
+                <div class="stats-badges">
+                  <span class="badge-stat" id="statSvgSize">0 KB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="controls-panel">
+              <h3 class="panel-title">Vector Settings</h3>
+
+              <div class="control-group">
+                <label class="control-label">Tracing Style</label>
+                <div class="segmented-toggle">
+                  <button type="button" class="segmented-btn active" id="modeColorBtn">Multi-Color</button>
+                  <button type="button" class="segmented-btn" id="modeMonoBtn">Black & White</button>
+                </div>
+              </div>
+
+              <div class="control-group" id="colorControlGroup">
+                <div class="control-label">
+                  <span>Color Depth</span>
+                  <span class="control-badge" id="colorsVal">8</span>
+                </div>
+                <input type="range" class="slider-input" id="colorsSlider" min="2" max="32" value="8">
+              </div>
+
+              <div class="control-group" id="monoControlGroup" style="display: none;">
+                <div class="control-label">
+                  <span>Threshold</span>
+                  <span class="control-badge" id="thresholdVal">128</span>
+                </div>
+                <input type="range" class="slider-input" id="thresholdSlider" min="10" max="245" value="128">
+              </div>
+
+              <div class="control-group">
+                <div class="control-label">
+                  <span>Curve Smoothness</span>
+                  <span class="control-badge" id="smoothnessVal">Balanced</span>
+                </div>
+                <input type="range" class="slider-input" id="smoothnessSlider" min="0" max="2" value="1">
+              </div>
+
+              <div class="control-group">
+                <label class="toggle-row">
+                  <span class="control-label" style="margin:0;">Remove Background</span>
+                  <label class="switch">
+                    <input type="checkbox" id="removeBgToggle">
+                    <span class="slider-switch"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="control-group">
+                <label class="toggle-row">
+                  <span class="control-label" style="margin:0;">Invert Colors</span>
+                  <label class="switch">
+                    <input type="checkbox" id="invertToggle">
+                    <span class="slider-switch"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="action-buttons">
+                <button type="button" class="btn-primary" id="downloadSvgBtn">Download SVG</button>
+                <button type="button" class="btn-secondary" id="copyCodeBtn">Copy SVG Code</button>
+                <button type="button" class="btn-secondary" id="viewCodeBtn">View Code</button>
+                <button type="button" class="btn-secondary" id="convertAnotherBtn" style="color: var(--text-muted);">Convert Another PNG</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Google AdSense In-Content -->
+        <div class="ad-slot-wrapper">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box in-content" id="ad-in-content">
+            <span>Google AdSense In-Article Responsive Ad</span>
+          </div>
+        </div>
+
+        <!-- Rich SEO Content -->
+        <section class="content-section">
+          <h2>Why Convert PNG to Scalable Vector Graphics (SVG)?</h2>
+          <p>
+            Portable Network Graphics (PNG) is the world's most popular raster image format for web graphics due to its support for lossless compression and alpha transparency. However, PNG images are made of a fixed grid of pixels. When scaled up for Retina displays, large posters, banners, or 4K monitors, pixelation and blurry edges become immediately noticeable.
+          </p>
+          <p>
+            By converting your <strong>PNG to SVG</strong>, you transform static pixels into dynamic mathematical curves. The resulting vector graphic maintains razor-sharp clarity at any display resolution or zoom level, and can be easily edited in software like Figma, Illustrator, Inkscape, or CorelDRAW.
+          </p>
+
+          <h3>Ideal Use Cases for PNG to SVG Conversion</h3>
+          <ul>
+            <li><strong>Company Logos & Brand Marks:</strong> Ensure your logo looks crisp on business cards, websites, and giant billboards.</li>
+            <li><strong>UI Icons & Web Badges:</strong> Reduce HTTP requests and bundle crisp vector icons into your website CSS or HTML.</li>
+            <li><strong>Cricut & Silhouette Cutting Machines:</strong> Craft hobbyists need vector contours to guide blade plotters accurately.</li>
+            <li><strong>T-Shirt & Merch Screen Printing:</strong> High-density screen printers require vector separation of color layers.</li>
+          </ul>
+
+          <h2>Frequently Asked Questions About PNG to SVG</h2>
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button class="faq-question">
+                <span>Will the converted SVG have a transparent background?</span>
+                <span class="faq-icon">▼</span>
+              </button>
+              <div class="faq-answer">
+                Yes! If your input PNG has transparent pixels, AnySVG automatically detects them and keeps the background transparent in the generated SVG file.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Can I edit the converted SVG in Illustrator or Figma?</span>
+                <span class="faq-icon">▼</span>
+              </button>
+              <div class="faq-answer">
+                Yes, our SVGs are 100% standard XML vectors with discrete <code>&lt;path&gt;</code> elements that can be ungrouped, recolored, and manipulated in any vector editing software.
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h3 class="widget-title">Convert Other Formats</h3>
+          <ul class="tools-nav-list">
+            <li class="tool-nav-item"><a href="index.html"><span>Any to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="png-to-svg.html" class="active"><span>PNG to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="jpg-to-svg.html"><span>JPG to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="svg-to-png.html"><span>SVG to PNG</span></a></li>
+            <li class="tool-nav-item"><a href="svg-to-jpg.html"><span>SVG to JPG</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ad-slot-wrapper">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box sidebar-ad">
+            <span>Google AdSense Sidebar Skyscraper (300x600)</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Google AdSense Bottom -->
+  <div class="ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-box footer-ad">
+      <span>Google AdSense Bottom Responsive Billboard</span>
+    </div>
+  </div>
+
+  <!-- Code Modal -->
+  <div class="modal-overlay" id="codeModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">SVG Source Code</h3>
+        <button type="button" class="modal-close" id="modalCloseBtn">✕</button>
+      </div>
+      <textarea class="code-textarea" id="codeTextarea" readonly></textarea>
+      <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+        <button type="button" class="btn-primary" id="modalCopyBtn">Copy Code</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div>© 2026 AnySVG. High-precision PNG to SVG vectorizer.</div>
+        <div><a href="privacy-policy.html">Privacy Policy</a> • <a href="terms.html">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/imagetracer.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/vectorizer.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "anysvg-converter",
+  "version": "1.0.0",
+  "description": "High-Quality Free Online Any to SVG Vectorizer with Full AdSense and SEO Ready Setup",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -l 3000 ."
+  },
+  "keywords": [
+    "svg-converter",
+    "png-to-svg",
+    "jpg-to-svg",
+    "vectorizer",
+    "path-tracing",
+    "adsense"
+  ],
+  "author": "AnySVG",
+  "license": "MIT"
+}

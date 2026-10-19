@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEBP to SVG Converter - Convert Modern WebP to Vector SVG | AnySVG</title>
+  <meta name="description" content="Convert WebP images to scalable SVG vectors online for free. Real path tracing, transparency preservation, and color quantization. 100% private.">
+  <meta name="keywords" content="webp to svg, convert webp to svg, webp to vector, google webp vectorizer">
+  <link rel="canonical" href="https://anysvg.com/webp-to-svg.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anysvg.com/webp-to-svg.html">
+  <meta property="og:title" content="WEBP to SVG Converter - Real Path Tracing">
+  <meta property="og:description" content="Convert modern WEBP graphics into scalable SVG vector paths. Fast, secure, and client-side.">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "AnySVG WEBP to SVG Converter",
+        "operatingSystem": "All (Web Browser)",
+        "applicationCategory": "MultimediaApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Convert WEBP graphics to clean SVG vectors."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>Any<span style="color: var(--primary);">SVG</span></span>
+        <span class="brand-tag">PRO</span>
+      </a>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="png-to-svg.html" class="nav-link">PNG to SVG</a></li>
+          <li><a href="jpg-to-svg.html" class="nav-link">JPG to SVG</a></li>
+          <li><a href="svg-to-png.html" class="nav-link">SVG to PNG</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-box leaderboard">
+      <span>Google AdSense Responsive Leaderboard (728x90)</span>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="main-layout">
+      <div class="main-content-column">
+        
+        <section class="hero-section">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>Modern Web Format • Lossless Vectorization</span>
+          </div>
+          <h1 class="hero-title">
+            Online <span class="gradient-text">WEBP to SVG Converter</span>
+          </h1>
+          <p class="hero-subtitle">
+            Transform modern WebP graphics and icons into clean, scalable vector paths. Works on both lossy and lossless WebP images.
+          </p>
+        </section>
+
+        <!-- Tool Card -->
+        <section class="tool-card" id="converter">
+          <div class="dropzone-container" id="dropzone">
+            <div class="dropzone-icon">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="dropzone-title">Drop your WEBP file here</h3>
+            <p class="dropzone-desc">Upload WebP image (up to 25MB)</p>
+            <div class="dropzone-formats">
+              <span class="format-pill" style="border-color: var(--primary); color: var(--primary);">WEBP Format</span>
+              <span class="format-pill">Transparent WebP</span>
+              <span class="format-pill">Animated Frames</span>
+            </div>
+            <input type="file" id="fileInput" class="file-input-hidden" accept="image/webp, image/png, image/jpeg">
+          </div>
+
+          <div class="processing-card" id="processingCard">
+            <h4 class="panel-title" style="justify-content: center;">Vectorizing WEBP...</h4>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+            <p class="processing-status" id="progressStatus">Extracting WebP vectors...</p>
+          </div>
+
+          <div class="results-workspace" id="resultsWorkspace">
+            <div class="preview-stage">
+              <div class="preview-header">
+                <div class="preview-tabs">
+                  <button type="button" class="preview-tab-btn active" id="tabVector">Vector SVG</button>
+                  <button type="button" class="preview-tab-btn" id="tabOriginal">Original WEBP</button>
+                </div>
+                <div class="stats-badges">
+                  <button type="button" class="badge-stat" id="zoomOutBtn">−</button>
+                  <button type="button" class="badge-stat" id="zoomResetBtn">100%</button>
+                  <button type="button" class="badge-stat" id="zoomInBtn">+</button>
+                </div>
+              </div>
+
+              <div class="preview-box" id="previewBox"></div>
+
+              <div class="preview-stats-bar">
+                <div class="stats-badges">
+                  <span class="badge-stat" id="statDimensions">0 × 0 px</span>
+                  <span class="badge-stat" id="statPaths">0 paths</span>
+                </div>
+                <div class="stats-badges">
+                  <span class="badge-stat" id="statSvgSize">0 KB</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="controls-panel">
+              <h3 class="panel-title">Vector Settings</h3>
+
+              <div class="control-group">
+                <label class="control-label">Tracing Style</label>
+                <div class="segmented-toggle">
+                  <button type="button" class="segmented-btn active" id="modeColorBtn">Multi-Color</button>
+                  <button type="button" class="segmented-btn" id="modeMonoBtn">Black & White</button>
+                </div>
+              </div>
+
+              <div class="control-group" id="colorControlGroup">
+                <div class="control-label">
+                  <span>Number of Colors</span>
+                  <span class="control-badge" id="colorsVal">8</span>
+                </div>
+                <input type="range" class="slider-input" id="colorsSlider" min="2" max="32" value="8">
+              </div>
+
+              <div class="control-group" id="monoControlGroup" style="display: none;">
+                <div class="control-label">
+                  <span>Threshold</span>
+                  <span class="control-badge" id="thresholdVal">128</span>
+                </div>
+                <input type="range" class="slider-input" id="thresholdSlider" min="10" max="245" value="128">
+              </div>
+
+              <div class="control-group">
+                <div class="control-label">
+                  <span>Curve Smoothness</span>
+                  <span class="control-badge" id="smoothnessVal">Balanced</span>
+                </div>
+                <input type="range" class="slider-input" id="smoothnessSlider" min="0" max="2" value="1">
+              </div>
+
+              <div class="control-group">
+                <label class="toggle-row">
+                  <span class="control-label" style="margin:0;">Remove Background</span>
+                  <label class="switch">
+                    <input type="checkbox" id="removeBgToggle">
+                    <span class="slider-switch"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="action-buttons">
+                <button type="button" class="btn-primary" id="downloadSvgBtn">Download SVG</button>
+                <button type="button" class="btn-secondary" id="copyCodeBtn">Copy SVG Code</button>
+                <button type="button" class="btn-secondary" id="convertAnotherBtn" style="color: var(--text-muted);">Convert Another WEBP</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="ad-slot-wrapper">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box in-content">
+            <span>Google AdSense In-Article Responsive Ad</span>
+          </div>
+        </div>
+
+        <section class="content-section">
+          <h2>About Converting WebP to Scalable Vector Graphics</h2>
+          <p>
+            WebP is Google's modern image format designed for efficient web delivery. While it compresses images much better than PNG and JPG, it remains a raster format bound to fixed pixel grids.
+          </p>
+          <p>
+            When you need to edit a WebP image inside Figma, Illustrator, or extract its geometry for a laser cutter or vinyl plotter, converting <strong>WebP to SVG</strong> gives you discrete vector nodes and curves that you can scale to any dimension without quality loss.
+          </p>
+        </section>
+
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h3 class="widget-title">Convert Other Formats</h3>
+          <ul class="tools-nav-list">
+            <li class="tool-nav-item"><a href="index.html"><span>Any to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="png-to-svg.html"><span>PNG to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="jpg-to-svg.html"><span>JPG to SVG</span></a></li>
+            <li class="tool-nav-item"><a href="svg-to-png.html"><span>SVG to PNG</span></a></li>
+            <li class="tool-nav-item"><a href="svg-to-jpg.html"><span>SVG to JPG</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ad-slot-wrapper">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-box sidebar-ad">
+            <span>Google AdSense Sidebar Skyscraper (300x600)</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div>© 2026 AnySVG. Online WebP to SVG vectorizer.</div>
+        <div><a href="privacy-policy.html">Privacy Policy</a> • <a href="terms.html">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/imagetracer.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/vectorizer.js"></script>
+</body>
+</html>
