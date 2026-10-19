@@ -181,6 +181,8 @@
     });
 
     // Dropzone Events
+    var browseFilesBtn = document.getElementById('browseFilesBtn'); if (browseFilesBtn) { browseFilesBtn.addEventListener('click', function(e) { e.stopPropagation(); fileInput.click(); }); }
+
     dropzone.addEventListener('click', function() {
       fileInput.click();
     });
